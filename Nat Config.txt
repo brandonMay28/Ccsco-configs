@@ -1,0 +1,27 @@
+## Config Nat Inside and Outside Interfaces
+
+conf t
+
+int fas 0/1
+ip nat outside
+
+int fas 0/0
+ip nat inside
+
+end
+write
+
+-------------------------------------------
+
+conf t
+
+ip access-list extended NAT-ACCESS
+permit ip any any
+exit
+
+ip nat pool NAT-POOL 192.168.122.10 192.168.122.16 prefix-length 24
+ip nat inside source list NAT-ACCESS pool NAT-POOL overload
+
+end
+write
+

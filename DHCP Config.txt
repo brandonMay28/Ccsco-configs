@@ -1,0 +1,14 @@
+conf t
+
+ip dhcp pool B2S1_Vlan10_Pool
+network 172.16.10.0 /24
+default-router 172.16.10.1
+dns-server 172.16.10.1
+exit
+
+ip dhcp excluded-address 172.16.10.1 172.16.10.15
+ip dhcp excluded-address 172.16.10.250 172.16.10.254
+
+end
+write
+

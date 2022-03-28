@@ -1,0 +1,23 @@
+conf t
+
+router bgp 65100
+bgp router-id 1.0.0.102
+neighbor 1.0.0.101 remote-as 65100
+neighbor 1.0.0.101 next-hop-self
+neighbor 1.0.0.101 update-source loopback 0
+
+address-family vpnv4 unicast 
+neighbor 1.0.0.101 activate
+neighbor 1.0.0.101 send-community extended
+exit
+
+address-family ipv4 unicast vrf brancorp
+redistribute ospf 1000 metric 5000
+exit
+
+end
+write
+
+
+
+

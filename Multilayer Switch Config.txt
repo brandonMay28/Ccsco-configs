@@ -1,0 +1,38 @@
+conf t
+
+hostname B2S1_DMLS2
+
+cdp run 
+lldp run
+
+spanning mode rapid
+
+ip domain lookup
+ip domain name B2.com
+
+ipv6 unicast
+ip cef
+ip routing
+
+username admin privilege 15 secret admin
+username admin privilege 15 algorithm-type scrypt secret admin
+
+service password-encryption
+
+line con 0
+exec-timeout 0 0
+logging synchronous
+login local
+exit
+
+line vty 0 15
+exec-timeout 0 0
+logging synchronous
+login local
+transport input all
+exit
+
+end
+
+write
+

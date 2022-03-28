@@ -1,0 +1,13 @@
+conf t
+
+
+router ospf 10
+router-id 10.0.0.251
+auto-cost reference-bandwidth 1000
+network 10.0.0.0 0.0.0.255 area 0
+network 10.100.100.0 0.0.0.255 area 0
+
+
+end
+write
+

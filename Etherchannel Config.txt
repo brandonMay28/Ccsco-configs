@@ -1,0 +1,16 @@
+conf t
+
+int port-channel 10
+switchport access vlan 777
+switchport trunk encap dot
+switchport trunk native vlan 777
+switchport mode trunk
+exit
+
+int ran gig 0/0, gig 0/1
+channel-protocol lacp
+channel-group 10 mode active
+
+end
+
+write

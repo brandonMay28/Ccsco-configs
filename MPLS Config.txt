@@ -1,0 +1,12 @@
+conf t
+
+mpls label range 1200 1299
+mpls ip
+
+int eth 0/0
+mpls ip
+
+
+end
+write
+

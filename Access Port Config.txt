@@ -1,0 +1,15 @@
+conf t
+
+int ethe 1/0
+switchport access vlan 10
+switchport port-security
+switchport port-security mac sticky
+switchport port-security max 2
+switchport port-security vio shutdown
+spanning portfast
+spanning bpduguard enable
+
+
+end
+write
+

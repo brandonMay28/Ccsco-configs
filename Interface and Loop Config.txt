@@ -1,0 +1,44 @@
+## Interfaces and Loopback Config ----- 10.0.0.40
+
+conf t
+
+int loop 0
+ip address 10.100.100.4 255.255.255.255
+no shut
+
+end
+write
+
+
+show ip int brief | include Loopback
+
+
+
+--------------------------------------
+
+conf t
+
+int eth 1/0
+ip address 10.0.0.38 255.255.255.252
+!description WanEdge Link To ISP1-PE Link
+!description VRF Link to Customer Brancorp
+!ip address dhcp
+no shut
+
+end
+write
+
+
+-------------------------------------------
+
+conf t
+
+int gig 3/3
+no switchport
+cdp enable
+ip address 172.16.0.5 255.255.255.252
+no shut
+
+end
+write
+

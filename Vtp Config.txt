@@ -1,0 +1,27 @@
+## Vtp Server
+
+conf t
+
+vtp ver 2
+vtp domain branvtp
+vtp mode server
+vtp password admin
+
+end
+write
+
+
+------------------------------
+
+## Vtp Client
+
+conf t
+
+vtp ver 2
+vtp domain branvtp
+vtp mode client
+vtp password admin
+
+end
+write
+

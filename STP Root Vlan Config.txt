@@ -1,0 +1,30 @@
+## Root STP Config Primary
+
+conf t
+
+spanning mode rapid
+
+spanning vlan 1-1000 prio 4096
+spanning vlan 10,12,14,16,18,20 prio 4096
+spanning vlan 11,13,15,17,19 prio 8192
+
+end
+write
+
+
+----------------------------------------
+
+
+## Root STP Config Secondary
+
+conf t
+
+spanning mode rapid
+
+spanning vlan 1-1000 prio 8192
+spanning vlan 10,12,14,16,18,20 prio 8192
+spanning vlan 11,13,15,17,19 prio 4096
+
+end
+write
+

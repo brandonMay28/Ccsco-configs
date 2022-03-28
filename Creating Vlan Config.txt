@@ -1,0 +1,17 @@
+conf t
+
+vlan 10
+name mangement
+
+vlan 11
+name arts
+
+vlan 12
+name software_program
+
+
+end
+write
+
+show vlan brief
+

@@ -1,0 +1,22 @@
+conf t
+
+event manager applet NO-SHUT-LOOPBACK0
+event syslog pattern "Interface Loopback0, changed state to administratively down"
+action 1.0 cli command "enable"
+action 1.5 cli command "conf t"
+action 2.0 cli command "int loop 0"
+action 2.5 cli command "shut"
+action 3.0 cli command "no shut"
+action 3.5 cli command "end"
+action 4.0 syslog msg "Interface Loopback 0 was shutdown. Please Investigate."
+exit
+
+end
+write
+
+
+show event manager policy registered
+
+
+
+

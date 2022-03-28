@@ -1,0 +1,9 @@
+conf t
+
+int vlan 10
+ip helper-address 10.100.100.103
+
+
+end
+write
+

@@ -1,0 +1,41 @@
+conf t
+
+spanning mode mst
+
+spanning mst conf
+name BRANMST
+revision 10
+instance 1 vlan 10,12,14
+instance 2 vlan 11,13,15
+
+exit
+
+spanning mst 0 prio 8192
+spanning mst 1 prio 8192
+spanning mst 2 prio 4096
+
+end
+write
+
+show spanning mst conf 
+
+
+-------------------------------------------
+
+conf t
+
+spanning mode mst
+
+spanning mst conf
+name BRANMST
+revision 10
+instance 1 vlan 10,12,14
+instance 2 vlan 11,13,15
+
+exit
+
+end
+write
+
+show spanning mst conf 
+

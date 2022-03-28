@@ -1,0 +1,23 @@
+conf t
+
+vrf definition brancorp
+rd 11:22
+
+address-family ipv4
+route-target export 22:22
+route-target import 11:11
+
+exit-address-family
+
+exit
+
+int eth 1/0
+vrf forwarding brancorp
+ip address 192.168.250.6 255.255.255.252
+
+end
+write
+
+!show vrf
+show vrf detail brancorp
+

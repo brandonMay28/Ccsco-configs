@@ -1,0 +1,34 @@
+conf t
+
+!hostname CORE4
+
+cdp run 
+lldp run
+
+ip domain lookup
+ip domain name B1.com
+ipv6 unicast
+ip cef
+
+username admin privilege 15 secret admin
+username admin privilege 15 algorithm-type scrypt secret admin
+
+service password-encryption
+
+line con 0
+exec-timeout 0 0
+logging synchronous
+login local
+exit
+
+line vty 0 4
+exec-timeout 0 0
+logging synchronous
+login local
+transport input all
+exit
+
+end
+
+write
+

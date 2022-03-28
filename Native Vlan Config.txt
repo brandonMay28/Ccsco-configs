@@ -1,0 +1,61 @@
+## Distritribution Layer
+
+conf t
+
+vlan 777
+exit
+
+int range gig 0/0 - 3, gig 1/0 - 3, gig 2/0 - 3, gig 3/0 - 3
+switchport access vlan 777
+switchport trunk encap dot
+switchport trunk native vlan 777
+switchport mode trunk
+
+end
+write
+
+
+------------------
+
+
+## Access Layer with Trunk Links
+
+conf t
+
+vlan 777
+exit
+
+int range ethe 0/0 - 3, ethe 1/0 - 3, ethe 2/0 - 3, ethe 3/0 - 3
+switchport access vlan 777
+switchport trunk encap dot
+switchport trunk native vlan 777
+switchport mode access
+exit
+int range ethe 0/0 - 1
+switchport mode trunk
+
+end
+write
+
+
+
+------------------
+
+
+## Access Layer
+
+conf t
+
+vlan 777
+exit
+
+int range ethe 0/0 - 3, ethe 1/0 - 3, ethe 2/0 - 3, ethe 3/0 - 3
+switchport access vlan 777
+switchport trunk encap dot
+switchport trunk native vlan 777
+switchport mode access
+
+end
+write
+
+

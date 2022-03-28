@@ -1,0 +1,35 @@
+## HSRP group Config
+
+conf t
+
+int fas 0/0
+standby 1 ip 10.100.101.1
+standby 1 prio 100
+standby 1 preempt
+standby 1 authentication md5 key-string admin
+!standby 1 track fastEthernet 0/1 20
+no shut
+
+end
+write
+
+
+
+--------------------------------------------------------------
+
+## VRRP group Config
+
+conf t
+
+int fas 0/0
+vrrp 1 ip 10.0.100.126
+vrrp 1 prio 110
+vrrp 1 preempt
+vrrp 1 authentication md5 text admin
+no shut
+
+end
+write
+
+
+

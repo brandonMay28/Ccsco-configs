@@ -1,0 +1,49 @@
+## Vlan with HSRP group Config
+
+conf t
+
+int vlan 10
+ip address 172.16.10.253 255.255.255.0
+standby version 2
+standby 10 ip 172.16.10.1 
+standby 10 prio 100
+standby 10 preempt
+standby 10 authentication md5 key-string admin
+no shut
+
+end
+write
+
+
+
+--------------------------------------------------------------
+
+## Vlan with VRRP group Config
+
+conf t
+
+int vlan 10
+ip address 10.1.10.254 255.255.255.0
+vrrp 10 ip 10.1.10.1 
+vrrp 10 prio 110
+vrrp 10 preempt
+vrrp 10 authentication md5 text admin
+no shut
+
+end
+write
+
+
+--------------------------------------------------------------
+
+## Vlan Config
+
+conf t
+
+int vlan 10
+ip address 172.16.10.11 255.255.255.0
+no shut
+
+end
+write
+
